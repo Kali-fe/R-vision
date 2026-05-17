@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Résum, plateforme légère de révision pour examens en économie numérique, bases de données, réseaux, web, télécoms et virtualisation."
+    />
+    <title>Résum - Révision examens informatique</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              inter: ['Inter', 'sans-serif'],
+              manrope: ['Manrope', 'sans-serif'],
+            },
+            colors: {
+              ink: '#172033',
+              muted: '#667085',
+              paper: '#f7f5ef',
+              cream: '#fffdf8',
+              line: '#e7e2d8',
+              brand: '#2f6f68',
+              orange: '#e98645',
+            },
+            boxShadow: {
+              soft: '0 18px 60px rgba(23, 32, 51, 0.08)',
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body class="bg-paper font-inter text-ink antialiased">
+    <header class="sticky top-0 z-50 border-b border-line/80 bg-cream/85 backdrop-blur-xl">
+      <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+        <a href="#accueil" class="flex items-center gap-3" aria-label="Accueil Résum">
+          <span class="grid h-11 w-11 place-items-center rounded-2xl bg-ink text-lg font-black text-cream shadow-soft">R</span>
+          <span class="leading-tight">
+            <span class="block font-manrope text-lg font-extrabold tracking-tight">Résum</span>
+            <span class="block text-xs font-semibold uppercase tracking-[0.22em] text-muted">Réviser vite</span>
+          </span>
+        </a>
+
+        <nav class="hidden items-center gap-2 rounded-full border border-line bg-white/70 p-1 text-sm font-semibold md:flex" aria-label="Navigation principale">
+          <a class="nav-link" href="#accueil">Accueil</a>
+          <a class="nav-link" href="#formation">Formation</a>
+          <a class="nav-link" href="#exercices">Exercices</a>
+        </nav>
+
+        <div class="flex items-center gap-2">
+          <span class="rounded-full border border-line bg-white px-3 py-2 text-xs font-bold text-muted">FR</span>
+          <button id="mobileMenuButton" class="rounded-full border border-line bg-white px-3 py-2 text-sm font-bold md:hidden" type="button" aria-expanded="false">
+            Menu
+          </button>
+        </div>
+      </div>
+      <nav id="mobileMenu" class="hidden border-t border-line bg-cream px-4 py-3 md:hidden" aria-label="Navigation mobile">
+        <a class="mobile-link" href="#accueil">Accueil</a>
+        <a class="mobile-link" href="#formation">Formation</a>
+        <a class="mobile-link" href="#exercices">Exercices</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="accueil" class="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 md:py-16 lg:grid-cols-[1.12fr_0.88fr] lg:px-8">
+        <div class="relative overflow-hidden rounded-[2rem] border border-line bg-[#dcefe9] p-5 shadow-soft">
+          <div class="absolute left-8 top-8 rounded-full bg-white/70 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.2em] text-brand">Exam sprint</div>
+          <svg class="h-full min-h-[360px] w-full" viewBox="0 0 860 560" role="img" aria-labelledby="heroTitle heroDesc">
+            <title id="heroTitle">Illustration de plateforme de révision</title>
+            <desc id="heroDesc">Un étudiant révise des matières informatiques avec des fiches, un réseau et des diagrammes.</desc>
+            <rect x="70" y="82" width="520" height="330" rx="34" fill="#fffdf8" stroke="#172033" stroke-width="4" />
+            <rect x="110" y="125" width="190" height="42" rx="14" fill="#172033" />
+            <rect x="110" y="190" width="410" height="22" rx="11" fill="#d7efe7" />
+            <rect x="110" y="230" width="330" height="22" rx="11" fill="#f3c891" />
+            <rect x="110" y="288" width="120" height="88" rx="18" fill="#2f6f68" />
+            <rect x="255" y="288" width="120" height="88" rx="18" fill="#e98645" />
+            <rect x="400" y="288" width="120" height="88" rx="18" fill="#172033" />
+            <circle cx="686" cy="174" r="70" fill="#f7d8a7" stroke="#172033" stroke-width="4" />
+            <path d="M650 174h72M686 138v72" stroke="#172033" stroke-width="8" stroke-linecap="round" />
+            <path d="M602 355c42-80 126-80 168 0" fill="none" stroke="#172033" stroke-width="18" stroke-linecap="round" />
+            <circle cx="622" cy="365" r="23" fill="#2f6f68" />
+            <circle cx="686" cy="318" r="23" fill="#e98645" />
+            <circle cx="750" cy="365" r="23" fill="#2f6f68" />
+            <path d="M230 455h410" stroke="#172033" stroke-width="8" stroke-linecap="round" />
+            <path d="M276 455c0-44 34-78 78-78h146c44 0 78 34 78 78" fill="#fffdf8" stroke="#172033" stroke-width="4" />
+          </svg>
+        </div>
+
+        <div class="flex flex-col justify-center rounded-[2rem] border border-line bg-cream p-7 shadow-soft sm:p-10">
+          <span id="heroBadge" class="mb-5 w-fit rounded-full bg-brand/10 px-4 py-2 text-sm font-extrabold text-brand">8 matières essentielles</span>
+          <h1 class="font-manrope text-4xl font-extrabold tracking-[-0.05em] text-ink sm:text-5xl lg:text-6xl">
+            Révise l'essentiel sans surcharger ton cerveau.
+          </h1>
+          <p class="mt-6 max-w-xl text-lg leading-8 text-muted">
+            Des fiches simples, des schémas visuels et des exercices corrigés pour préparer tes examens en informatique, réseaux, télécoms, web et économie numérique.
+          </p>
+          <div class="mt-8 grid gap-3 sm:grid-cols-3">
+            <div class="stat-card"><strong>≤ 10</strong><span>leçons par matière</span></div>
+            <div class="stat-card"><strong>32</strong><span>questions types</span></div>
+            <div class="stat-card"><strong>0</strong><span>backend requis</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="formation" class="mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">
+        <div class="mb-6 flex flex-col justify-between gap-4 rounded-[1.75rem] border border-line bg-cream p-5 shadow-soft md:flex-row md:items-end">
+          <div>
+            <p class="text-sm font-extrabold uppercase tracking-[0.22em] text-orange">Programmes</p>
+            <h2 class="mt-2 font-manrope text-3xl font-extrabold tracking-[-0.04em] sm:text-4xl">Choisis une matière</h2>
+          </div>
+          <select id="programSelect" class="rounded-2xl border border-line bg-white px-4 py-3 text-sm font-bold text-ink md:min-w-72" aria-label="Choisir une matière"></select>
+        </div>
+        <div id="programGrid" class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4"></div>
+      </section>
+
+      <section class="mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:px-6 lg:grid-cols-[330px_1fr] lg:px-8">
+        <aside class="h-fit rounded-[1.75rem] border border-line bg-cream p-4 shadow-soft lg:sticky lg:top-24">
+          <div class="mb-4 flex items-center justify-between gap-3">
+            <div>
+              <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-muted">Plan du cours</p>
+              <h3 id="sidebarTitle" class="mt-1 font-manrope text-xl font-extrabold">Leçons</h3>
+            </div>
+            <span id="lessonCount" class="rounded-full bg-brand/10 px-3 py-1 text-xs font-extrabold text-brand"></span>
+          </div>
+          <div id="lessonList" class="grid gap-2"></div>
+        </aside>
+
+        <article class="min-w-0 rounded-[1.75rem] border border-line bg-cream p-5 shadow-soft sm:p-8">
+          <div class="mb-6 flex flex-col justify-between gap-4 border-b border-line pb-6 md:flex-row md:items-start">
+            <div>
+              <span id="lessonBadge" class="rounded-full bg-orange/10 px-4 py-2 text-sm font-extrabold text-orange"></span>
+              <h2 id="lessonTitle" class="mt-5 font-manrope text-3xl font-extrabold tracking-[-0.04em] sm:text-5xl"></h2>
+              <p id="lessonIntro" class="mt-4 max-w-3xl text-lg leading-8 text-muted"></p>
+            </div>
+            <button id="nextLessonButton" class="rounded-2xl bg-ink px-5 py-3 text-sm font-extrabold text-cream transition hover:bg-brand" type="button">Leçon suivante</button>
+          </div>
+
+          <div class="grid gap-5 xl:grid-cols-[1fr_360px]">
+            <div class="space-y-5">
+              <section class="content-card">
+                <h3>Objectifs à retenir</h3>
+                <ul id="objectivesList" class="check-list"></ul>
+              </section>
+              <section class="content-card">
+                <h3>Explication essentielle</h3>
+                <div id="summaryText" class="space-y-4 text-[15px] leading-7 text-slate-700"></div>
+              </section>
+              <section class="content-card">
+                <h3>Exemple concret</h3>
+                <div id="exampleBox" class="example-box"></div>
+              </section>
+              <section class="content-card">
+                <h3>Points clés d'examen</h3>
+                <ul id="keyPointsList" class="dot-list"></ul>
+              </section>
+            </div>
+
+            <div class="space-y-5">
+              <section class="content-card overflow-hidden">
+                <h3>Illustration technique</h3>
+                <div id="diagramBox" class="diagram-box"></div>
+              </section>
+              <section class="rounded-[1.5rem] bg-ink p-5 text-cream">
+                <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-cream/60">Méthode</p>
+                <p class="mt-3 text-2xl font-extrabold tracking-tight">Lis, cache, récite.</p>
+                <p class="mt-3 text-sm leading-6 text-cream/75">Après chaque leçon, ferme le résumé et explique le schéma en 60 secondes. Si tu bloques, relis uniquement les points clés.</p>
+              </section>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="exercices" class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div class="rounded-[2rem] border border-line bg-cream p-5 shadow-soft sm:p-8">
+          <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+            <div>
+              <p class="text-sm font-extrabold uppercase tracking-[0.22em] text-brand">Exercices</p>
+              <h2 class="mt-2 font-manrope text-3xl font-extrabold tracking-[-0.04em] sm:text-4xl">Questions de cours et exercices corrigés</h2>
+              <p class="mt-3 max-w-2xl leading-7 text-muted">Deux niveaux : questions directes pour vérifier le cours, puis cas pratiques avec calculs, requêtes, commandes, code ou raisonnement technique.</p>
+            </div>
+            <select id="exerciseSelect" class="rounded-2xl border border-line bg-white px-4 py-3 text-sm font-bold text-ink md:min-w-72" aria-label="Choisir les exercices d'une matière"></select>
+          </div>
+          <div id="exerciseList" class="mt-7 grid gap-4"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mx-auto max-w-7xl px-4 pb-10 pt-4 sm:px-6 lg:px-8">
+      <div class="rounded-[1.5rem] border border-line bg-cream p-5 text-center text-sm font-semibold text-muted">
+        Résum est un site statique de révision. Ouvre simplement <code class="rounded bg-paper px-2 py-1">index.html</code> ou déploie le dossier sur Netlify, Vercel, GitHub Pages ou tout hébergement statique.
+      </div>
+    </footer>
+
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>
