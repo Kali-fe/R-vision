@@ -73,10 +73,10 @@
     </header>
 
     <main>
-      <section id="accueil" class="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 md:py-16 lg:grid-cols-[1.12fr_0.88fr] lg:px-8">
+      <section id="accueil" data-page="accueil" class="page-section mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 md:py-16 lg:grid-cols-[1.12fr_0.88fr] lg:px-8">
         <div class="relative overflow-hidden rounded-[2rem] border border-line bg-[#dcefe9] p-5 shadow-soft">
           <div class="absolute left-8 top-8 rounded-full bg-white/70 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.2em] text-brand">Exam sprint</div>
-          <svg class="h-full min-h-[360px] w-full" viewBox="0 0 860 560" role="img" aria-labelledby="heroTitle heroDesc">
+          <svg class="hero-svg h-full min-h-[360px] w-full" viewBox="0 0 860 560" role="img" aria-labelledby="heroTitle heroDesc">
             <title id="heroTitle">Illustration de plateforme de révision</title>
             <desc id="heroDesc">Un étudiant révise des matières informatiques avec des fiches, un réseau et des diagrammes.</desc>
             <rect x="70" y="82" width="520" height="330" rx="34" fill="#fffdf8" stroke="#172033" stroke-width="4" />
@@ -113,7 +113,7 @@
         </div>
       </section>
 
-      <section id="formation" class="mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">
+      <section id="formation" data-page="formation" class="page-section mx-auto max-w-7xl px-4 pb-8 pt-8 sm:px-6 lg:px-8">
         <div class="mb-6 flex flex-col justify-between gap-4 rounded-[1.75rem] border border-line bg-cream p-5 shadow-soft md:flex-row md:items-end">
           <div>
             <p class="text-sm font-extrabold uppercase tracking-[0.22em] text-orange">Programmes</p>
@@ -124,7 +124,7 @@
         <div id="programGrid" class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4"></div>
       </section>
 
-      <section class="mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:px-6 lg:grid-cols-[330px_1fr] lg:px-8">
+      <section data-page="formation" class="page-section mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:px-6 lg:grid-cols-[330px_1fr] lg:px-8">
         <aside class="h-fit rounded-[1.75rem] border border-line bg-cream p-4 shadow-soft lg:sticky lg:top-24">
           <div class="mb-4 flex items-center justify-between gap-3">
             <div>
@@ -181,7 +181,7 @@
         </article>
       </section>
 
-      <section id="exercices" class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <section id="exercices" data-page="exercices" class="page-section mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div class="rounded-[2rem] border border-line bg-cream p-5 shadow-soft sm:p-8">
           <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
             <div>

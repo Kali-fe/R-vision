@@ -512,6 +512,7 @@ function init() {
   renderProgramControls();
   renderAll();
   bindEvents();
+  showPage(getPageFromHash());
 }
 
 function bindEvents() {
@@ -520,8 +521,35 @@ function bindEvents() {
     els.mobileMenuButton.setAttribute('aria-expanded', String(isOpen));
   });
 
-  document.querySelectorAll('#mobileMenu a').forEach((link) => {
-    link.addEventListener('click', () => els.mobileMenu.classList.add('hidden'));
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const page = link.getAttribute('href').replace('#', '');
+      if (!['accueil', 'formation', 'exercices'].includes(page)) return;
+
+      event.preventDefault();
+      showPage(page);
+      closeMobileMenu();
+      history.pushState(null, '', `#${page}`);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    const clickedInsideMenu = els.mobileMenu.contains(event.target);
+    const clickedMenuButton = els.mobileMenuButton.contains(event.target);
+    if (!clickedInsideMenu && !clickedMenuButton) {
+      closeMobileMenu();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeMobileMenu();
+    }
+  });
+
+  window.addEventListener('popstate', () => {
+    showPage(getPageFromHash());
   });
 
   els.programSelect.addEventListener('change', (event) => {
@@ -534,7 +562,9 @@ function bindEvents() {
     currentProgramIndex = Number(event.target.value);
     currentLessonIndex = 0;
     renderAll();
-    document.querySelector('#exercices').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    showPage('exercices');
+    history.replaceState(null, '', '#exercices');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
   els.nextLessonButton.addEventListener('click', () => {
@@ -542,6 +572,26 @@ function bindEvents() {
     currentLessonIndex = (currentLessonIndex + 1) % program.lessons.length;
     renderLessonArea();
   });
+}
+
+function getPageFromHash() {
+  const page = window.location.hash.replace('#', '');
+  return ['accueil', 'formation', 'exercices'].includes(page) ? page : 'accueil';
+}
+
+function showPage(page) {
+  document.querySelectorAll('[data-page]').forEach((section) => {
+    section.classList.toggle('page-hidden', section.dataset.page !== page);
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.classList.toggle('active', link.getAttribute('href') === `#${page}`);
+  });
+}
+
+function closeMobileMenu() {
+  els.mobileMenu.classList.add('hidden');
+  els.mobileMenuButton.setAttribute('aria-expanded', 'false');
 }
 
 function renderProgramControls() {
