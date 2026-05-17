@@ -124,8 +124,8 @@
         <div id="programGrid" class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4"></div>
       </section>
 
-      <section data-page="formation" class="page-section mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:px-6 lg:grid-cols-[330px_1fr] lg:px-8">
-        <aside class="h-fit rounded-[1.75rem] border border-line bg-cream p-4 shadow-soft lg:sticky lg:top-24">
+      <section data-page="formation" class="page-section mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <aside class="rounded-[1.75rem] border border-line bg-cream p-4 shadow-soft">
           <div class="mb-4 flex items-center justify-between gap-3">
             <div>
               <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-muted">Plan du cours</p>
@@ -135,7 +135,9 @@
           </div>
           <div id="lessonList" class="grid gap-2"></div>
         </aside>
+      </section>
 
+      <section id="lecon" data-page="lesson" class="page-section mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
         <article class="min-w-0 rounded-[1.75rem] border border-line bg-cream p-5 shadow-soft sm:p-8">
           <div class="mb-6 flex flex-col justify-between gap-4 border-b border-line pb-6 md:flex-row md:items-start">
             <div>
@@ -143,7 +145,10 @@
               <h2 id="lessonTitle" class="mt-5 font-manrope text-3xl font-extrabold tracking-[-0.04em] sm:text-5xl"></h2>
               <p id="lessonIntro" class="mt-4 max-w-3xl text-lg leading-8 text-muted"></p>
             </div>
-            <button id="nextLessonButton" class="rounded-2xl bg-ink px-5 py-3 text-sm font-extrabold text-cream transition hover:bg-brand" type="button">Leçon suivante</button>
+            <div class="flex flex-col gap-2 sm:flex-row md:flex-col">
+              <button id="backToLessonsButton" class="rounded-2xl border border-line bg-white px-5 py-3 text-sm font-extrabold text-ink transition hover:bg-paper" type="button">Retour aux leçons</button>
+              <button id="nextLessonButton" class="rounded-2xl bg-ink px-5 py-3 text-sm font-extrabold text-cream transition hover:bg-brand" type="button">Leçon suivante</button>
+            </div>
           </div>
 
           <div class="grid gap-5 xl:grid-cols-[1fr_360px]">

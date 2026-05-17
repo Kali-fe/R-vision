@@ -288,6 +288,7 @@ const els = {
   exampleBox: document.querySelector('#exampleBox'),
   keyPointsList: document.querySelector('#keyPointsList'),
   diagramBox: document.querySelector('#diagramBox'),
+  backToLessonsButton: document.querySelector('#backToLessonsButton'),
   nextLessonButton: document.querySelector('#nextLessonButton'),
   exerciseSelect: document.querySelector('#exerciseSelect'),
   exerciseList: document.querySelector('#exerciseList'),
@@ -571,11 +572,21 @@ function bindEvents() {
     const program = programs[currentProgramIndex];
     currentLessonIndex = (currentLessonIndex + 1) % program.lessons.length;
     renderLessonArea();
+    showPage('lesson');
+    history.replaceState(null, '', '#lecon');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  els.backToLessonsButton.addEventListener('click', () => {
+    showPage('formation');
+    history.pushState(null, '', '#formation');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
 
 function getPageFromHash() {
   const page = window.location.hash.replace('#', '');
+  if (page === 'lecon' || page === 'lesson') return 'lesson';
   return ['accueil', 'formation', 'exercices'].includes(page) ? page : 'accueil';
 }
 
@@ -584,8 +595,9 @@ function showPage(page) {
     section.classList.toggle('page-hidden', section.dataset.page !== page);
   });
 
+  const activeNavPage = page === 'lesson' ? 'formation' : page;
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.classList.toggle('active', link.getAttribute('href') === `#${page}`);
+    link.classList.toggle('active', link.getAttribute('href') === `#${activeNavPage}`);
   });
 }
 
@@ -630,7 +642,9 @@ function renderProgramGrid() {
       currentProgramIndex = Number(button.dataset.programIndex);
       currentLessonIndex = 0;
       renderAll();
-      document.querySelector('#formation').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      showPage('formation');
+      history.replaceState(null, '', '#formation');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
 }
@@ -657,6 +671,9 @@ function renderLessonArea() {
     button.addEventListener('click', () => {
       currentLessonIndex = Number(button.dataset.lessonIndex);
       renderLessonArea();
+      showPage('lesson');
+      history.pushState(null, '', '#lecon');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
 

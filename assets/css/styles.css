@@ -106,6 +106,10 @@ aside,
   width: 100%;
 }
 
+#lessonList {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
 .content-card {
   border: 1px solid #e7e2d8;
   border-radius: 1.5rem;
@@ -333,6 +337,10 @@ aside,
 @media (max-width: 768px) {
   .program-card {
     min-height: auto;
+  }
+
+  #lessonList {
+    grid-template-columns: 1fr;
   }
 
   .hero-svg {
